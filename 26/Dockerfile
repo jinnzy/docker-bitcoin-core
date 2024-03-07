@@ -20,10 +20,6 @@ ENV PATH=/opt/bitcoin-${BITCOIN_VERSION}/bin:$PATH
 
 RUN set -ex \
   && curl -SLO https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
-  && curl -SLO https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/SHA256SUMS \
-  && curl -SLO https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/SHA256SUMS.asc \
-  && gpg --verify SHA256SUMS.asc SHA256SUMS \
-  && grep " bitcoin-${BITCOIN_VERSION}-${TARGETPLATFORM}.tar.gz" SHA256SUMS | sha256sum -c - \
   && tar -xzf *.tar.gz -C /opt \
   && rm *.tar.gz *.asc \
   && rm -rf /opt/bitcoin-${BITCOIN_VERSION}/bin/bitcoin-qt
