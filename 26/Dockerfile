@@ -1,6 +1,7 @@
 FROM debian:bullseye-slim
 
-
+ARG UID=101
+ARG GID=101
 
 LABEL maintainer.0="João Fonseca (@joaopaulofonseca)" \
   maintainer.1="Pedro Branco (@pedrobranco)" \
