@@ -21,9 +21,9 @@ ENV PATH=/opt/bitcoin-${BITCOIN_VERSION}/bin:$PATH
 RUN set -ex \
   && curl -SLO https://bitcoincore.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz \
   && tar -xzf *.tar.gz -C /opt \
-  && rm *.tar.gz *.asc \
-  && rm -rf /opt/bitcoin-${BITCOIN_VERSION}/bin/bitcoin-qt
+  && rm *.tar.gz
 
+COPY docker-entrypoint.sh /entrypoint.sh
 
 VOLUME ["/home/bitcoin/.bitcoin"]
 
